@@ -3,6 +3,29 @@ body{
     background: url(../assets/img/bg.jpg);
 }
 
+/* ==================== Painel ==================== */
+
+.painel-inferior{
+    position: absolute;
+    width: 190px;
+    padding: 10px;
+    left: 0;
+    bottom: 0;
+    border-top: solid 1px #fff;
+    background: #fff;
+    opacity: .7
+}
+
+.vidas{
+    float: left;
+}
+
+.cronometro{
+    float: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 
 /* ==================== Imagens Mosquito ==================== */
 .mosquito1, .mosquito2, .mosquito3{
@@ -24,3 +47,4 @@ body{
 .ladoB{
     transform: scaleX(-1);   
 }
+

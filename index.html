@@ -12,7 +12,19 @@
 <body>
 
 
+    <div class="painel-inferior">
+        <div class="vidas">
+            <img id="v1" src="./assets/img/coracao_cheio.png" alt="">
+            <img id="v2" src="./assets/img/coracao_cheio.png" alt="">
+            <img id="v3" src="./assets/img/coracao_cheio.png" alt="">
+        </div>
+        <div class="cronometro">Tempo restante: <span id="cronometro"></span></div>
+    </div>
+
+
     <script>
+            document.getElementById('cronometro').innerHTML = DOM.tempo
+
         jogo.init()
     </script>
 </body>
