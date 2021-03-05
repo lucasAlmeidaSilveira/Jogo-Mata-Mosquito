@@ -21,6 +21,14 @@ const dados = {
 };
 
 const DOM = {
+    mataMosquito(){
+        document.querySelector('#box-mosquito img').setAttribute('src', './assets/img/mosca_sangue.png')
+        setTimeout(()=>{
+            document.getElementById('box-mosquito').remove()
+        },300)
+
+    },
+
     createImg() {
         if (document.getElementById("box-mosquito")) {
             document.getElementById("box-mosquito").remove();
@@ -39,7 +47,7 @@ const DOM = {
         const div = document.createElement("div");
         div.id = "box-mosquito";
         div.innerHTML = `
-        <img onclick="document.getElementById('box-mosquito').remove()" class="${this.tamanhoRandom()} ${this.ladoRandom()}" style="left:${posicaoX}px; top:${posicaoY}px" src="./assets/img/mosca.png">
+        <img onclick="DOM.mataMosquito()" class="${this.tamanhoRandom()} ${this.ladoRandom()}" style="left:${posicaoX}px; top:${posicaoY}px" src="./assets/img/mosca.png">
         `;
         document.body.appendChild(div);
     },
