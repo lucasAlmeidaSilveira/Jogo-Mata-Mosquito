@@ -17,6 +17,7 @@
 
 - HTML
 - CSS
+- Framework Bootstrap
 - JAVASCRIPT
 
 ## :video_game: Teste agora mesmo, e vença o nível Chuck Norris... se for capaz!
