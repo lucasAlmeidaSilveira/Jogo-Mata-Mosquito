@@ -5,6 +5,7 @@ const dados = {
     posicaoY: 0,
     vidas: 1,
     tempo: 10,
+    tempoMosquito: 4000,
 
     ajustaTamanhoPalcoJogo() {
         this.altura = window.innerHeight;
@@ -43,6 +44,21 @@ const DOM = {
         document.body.appendChild(div);
     },
 
+    createCorpoJogo(){
+        const corpoJogo = document.createElement('div')
+        corpoJogo.innerHTML = `
+        <div class="painel-inferior">
+            <div class="vidas">
+                <img id="v1" src="./assets/img/coracao_cheio.png" alt="">
+                <img id="v2" src="./assets/img/coracao_cheio.png" alt="">
+                <img id="v3" src="./assets/img/coracao_cheio.png" alt="">
+            </div>
+            <div class="cronometro">Tempo restante: <span id="cronometro"></span></div>
+        </div>
+        `
+        document.body.appendChild(corpoJogo)
+    },
+
     tamanhoRandom() {
         const classe = Math.floor(Math.random() * 3);
         switch (classe) {
@@ -63,13 +79,37 @@ const DOM = {
     },
 };
 
+
 const jogo = {
+    defineNivelJogo(){
+        let nivel = document.getElementById('nivel').value 
+        // verificando nível válido
+        switch(nivel){
+            case 'normal':
+                dados.tempoMosquito = 1500
+                break
+            case 'dificil':
+                dados.tempoMosquito = 1000
+                break
+            case 'muitoDificil':
+                dados.tempoMosquito = 750
+                break
+            default:
+                return alert('Selecione um nível para iniciar o jogo')
+        }
+
+        this.init(dados.tempoMosquito)
+    },
+
     init() {
+        document.body.innerHTML = ''
+        DOM.createCorpoJogo()
+
         document.getElementById("cronometro").innerHTML = dados.tempo;
         this.actions();
         const criarMosquito = setInterval(() => {
             this.actions();
-        }, 2000);
+        }, dados.tempoMosquito);
         this.cronometro(criarMosquito);
     },
 
@@ -81,11 +121,11 @@ const jogo = {
 
     cronometro(criarMosquito) {
         let cronometro = setInterval(() => {
-            dados.tempo -= 1;
+            dados.tempo--;
             if (dados.tempo < 0) {
                 clearInterval(cronometro);
                 clearInterval(criarMosquito);
-                alert("Vitória");
+                window.location.href = "vitoria.html";
             } else {
                 document.getElementById("cronometro").innerHTML = dados.tempo;
             }

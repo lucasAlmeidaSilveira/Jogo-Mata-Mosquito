@@ -1,4 +1,8 @@
 /* ==================== Global ==================== */
+html{
+    cursor: url(../assets/img/mata_mosquito.png) 30 30, auto;
+}
+
 body {
     background: url(../assets/img/bg.jpg);
     background-size: cover;
