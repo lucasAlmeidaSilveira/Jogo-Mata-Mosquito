@@ -79,7 +79,6 @@ const DOM = {
     },
 };
 
-
 const jogo = {
     defineNivelJogo(){
         let nivel = document.getElementById('nivel').value 
