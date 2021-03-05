@@ -65,6 +65,7 @@ const DOM = {
 
 const jogo = {
     init() {
+        document.getElementById('cronometro').innerHTML = dados.tempo
         const criarMosquito = setInterval(() => {
             dados.ajustaTamanhoPalcoJogo();
             dados.posicaoXY();

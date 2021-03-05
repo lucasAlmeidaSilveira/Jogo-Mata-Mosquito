@@ -1,6 +1,20 @@
 /* ==================== Global ==================== */
 body{
     background: url(../assets/img/bg.jpg);
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    height: 100vh;
+    width: min(85vw, 800px);
+    position: relative;
+    bottom: 3rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ==================== Painel ==================== */
@@ -23,7 +37,6 @@ body{
 .cronometro{
     float: left;
     font-size: 1.2rem;
-    font-weight: bold;
 }
 
 
