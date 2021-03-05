@@ -65,20 +65,26 @@ const DOM = {
 
 const jogo = {
     init() {
-        document.getElementById('cronometro').innerHTML = dados.tempo
+        document.getElementById("cronometro").innerHTML = dados.tempo;
+        this.actions();
         const criarMosquito = setInterval(() => {
-            dados.ajustaTamanhoPalcoJogo();
-            dados.posicaoXY();
-            DOM.createImg();
+            this.actions();
         }, 2000);
         this.cronometro(criarMosquito);
     },
+
+    actions() {
+        dados.ajustaTamanhoPalcoJogo();
+        dados.posicaoXY();
+        DOM.createImg();
+    },
+
     cronometro(criarMosquito) {
         let cronometro = setInterval(() => {
             dados.tempo -= 1;
             if (dados.tempo < 0) {
-                clearInterval(cronometro)
-                clearInterval(criarMosquito)
+                clearInterval(cronometro);
+                clearInterval(criarMosquito);
                 alert("Vitória");
             } else {
                 document.getElementById("cronometro").innerHTML = dados.tempo;
